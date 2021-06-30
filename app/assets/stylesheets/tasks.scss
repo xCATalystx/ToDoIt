@@ -3,30 +3,43 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-.field_with_errors {
+.field_with_errors{
     display: inline;
 
-    label {
+    label{
         color: red;
     }
 
-    input, textarea {
+    input, textarea{
         border: 1px red solid;
     }
 }
 
-.task {
+.task{
     width: 300px;
     height: 150px;
     border: 1px solid #f0f0f0;
     padding: 4px;
     display: inline-block;
     
-    .task-title {
+    .task-title{
         font-size: 18px;
     }
-    .task-body {
+    .task-body{
         background: #f0f0f0;
         border: 1px dotted gray;
+    }
+}
+
+.notes{
+    li{
+        list-style: none;
+        font-size: 18px;
+        margin-top: 5px;
+        padding: 5px;
+
+        &:hover{
+            background: #f0f0f0;
+        }
     }
 }

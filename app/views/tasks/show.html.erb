@@ -2,3 +2,17 @@
 <p>
   <%= @task.content %>
 </p>
+<hr>
+<%= form_for(@note, url: task_notes_path(@task)) do |f|%>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>
+
+<ul class="notes">
+<% @notes.each do |note| %>
+  <li>
+    <%= link_to "刪除", note, method: 'delete', data: {confirm: '確認刪除？'} %>
+    <%= note.content %>
+  </li>
+<% end %>
+</ul>

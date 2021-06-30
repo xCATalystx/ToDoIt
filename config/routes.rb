@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   # resources :login
   get "/login", to: 'login#index'
 
-  resources :tasks
+  resources :tasks do
+    resources :notes, shallow: true,
+               except: [:index, :show, :new]
+  end
   # get "/tasks", to: 'tasks#index'
   # get "/tasks/new", to: 'tasks#new'
 
