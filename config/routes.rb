@@ -17,6 +17,10 @@ Rails.application.routes.draw do
 
 
   resources :tasks do
+    collection do
+      get :search
+    end
+    
     resources :notes, shallow: true,
                except: [:index, :show, :new]
   end
