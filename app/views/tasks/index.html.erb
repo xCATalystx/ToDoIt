@@ -4,11 +4,16 @@
 
 <hr>
 
+<%= paginate @tasks %>
+
+<hr>
+
 <table>
   <thead>
     <tr class="row">
       <th class="priority">優先</th>
       <th class="task">待辦事項</th>
+      <th class="tag">標籤</th>
       <th class="duedate">截止日期</th>
       <th class="status">進度</th>
       <th class="edit">編輯</th>
@@ -20,6 +25,7 @@
     <tr>
       <th><%= task.priority %></th>
       <th><%= link_to task.title, task %></th>
+      <th><%= task.tag %></th>
       <th><%= task.due_date %></th>
       <th><%= task.status %></th>
       <th><%= link_to "編輯", edit_task_path(task) %></th>
