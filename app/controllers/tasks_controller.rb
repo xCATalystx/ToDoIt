@@ -4,7 +4,7 @@ class TasksController < ApplicationController
 
   def search
     keyword = params[:keyword]
-    @tasks = Task.where("title like '%#{keyword}%' or status like '%#{keyword}%' or tag like '%#{keyword}%'").page(params[:page]).per(5)
+    @tasks = Task.search(keyword).page(params[:page]).per(5)
   end
 
   def index
