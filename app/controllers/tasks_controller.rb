@@ -1,9 +1,9 @@
 class TasksController < ApplicationController
-
-  before_action :find_task, only: [:edit, :update, :destroy, :show]
+  before_action :require_user
+  before_action :find_my_task, only: [:edit, :update, :destroy]
 
   def index
-    @tasks = Task.order(id: :desc)
+    @tasks = Current.user.tasks.order(id: :desc)
   end
 
   def new
@@ -11,7 +11,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
+    @task = Current.user.tasks.new(task_params)
 
     if @task.save
         flash[:notice] = "新增任務成功！"
@@ -44,10 +44,10 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:title, :content)
+    params.require(:task).permit(:priority, :status, :tag, :title, :due_date, :content)
   end
 
-  def find_task
-    @task = Task.find(params["id"])
+  def find_my_task
+    @task = Current.user.tasks.find(params["id"])
   end
 end

@@ -4,15 +4,27 @@
 
 <hr>
 
-<% @tasks.each do |task| %>
-  <div class="task">
-    <h2 class="task-title">
-      <%= link_to task.title, task %>
-      <%= link_to "編輯", edit_task_path(task) %>
-      <%= link_to "刪除", task, method: 'delete', data: { confirm: '確定刪除？' } %>
-    </h2>
-    <div class="task-body">
-      <p><%= task.content %></p>
-    </div>
-  </div>
-<% end %>
+<table>
+  <thead>
+    <tr class="row">
+      <th class="priority">優先</th>
+      <th class="task">待辦事項</th>
+      <th class="duedate">截止日期</th>
+      <th class="status">進度</th>
+      <th class="edit">編輯</th>
+      <th class="delete">刪除</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @tasks.each do |task| %>
+    <tr>
+      <th><%= task.priority %></th>
+      <th><%= link_to task.title, task %></th>
+      <th><%= task.due_date %></th>
+      <th><%= task.status %></th>
+      <th><%= link_to "編輯", edit_task_path(task) %></th>
+      <th><%= link_to "刪除", task, method: 'delete', data: { confirm: '確定刪除？' } %></th>   
+    </tr>
+  <% end %>
+  </tbody>
+</table>

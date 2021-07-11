@@ -12,6 +12,22 @@
     <%= f.text_field :title %>
   </div>
   <div>
+    <%= f.label :priority %>
+    <%= f.select(:priority, options_for_select(["高", "中", "低"]), {}, { :class => 'style'})%>
+  </div>
+  <div>
+    <%= f.label :status %>
+    <%= f.select(:status, options_for_select(["待處理", "進行中", "已完成"]), {}, { :class => 'style'})%>
+  </div>
+  <div>
+    <%= f.label :tag %>
+    <%= f.text_area :tag %>
+  </div>
+  <div>
+    <%= f.label :due_date %>
+    <%= f.date_select :due_date %>
+  </div>
+  <div>
     <%= f.label :content %>
     <%= f.text_area :content %>
   </div>
