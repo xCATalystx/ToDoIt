@@ -1,0 +1,9 @@
+<div>
+  <% if Current.user %>
+    <%= Current.user.email %>
+    <%= button_to "Logout", logout_path, method: :delete %>
+  <% else %>
+    <%= link_to "Sign Up", sign_up_path %>
+    <%= link_to "Login", sign_in_path %>
+  <% end %>
+</div>

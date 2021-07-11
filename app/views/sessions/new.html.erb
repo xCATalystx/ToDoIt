@@ -1,0 +1,17 @@
+<h1>Sign In</h1>
+
+<%= form_with url: sign_in_path do |form| %>
+  <div>
+    <%= form.label :email %>
+    <%= form.text_field :email, placeholder: "example@mail.com" %>
+  </div>
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password, placeholder: "password" %>
+    <%= link_to "Forget Password?", password_reset_path %>
+  </div>
+
+  <div>
+    <%= form.submit "Sign In" %>
+  </div>
+<% end %>

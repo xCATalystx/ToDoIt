@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_30_074840) do
+ActiveRecord::Schema.define(version: 2021_07_11_092241) do
+
+  create_table "complete_tasks", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "task_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["task_id"], name: "index_complete_tasks_on_task_id"
+    t.index ["user_id"], name: "index_complete_tasks_on_user_id"
+  end
 
   create_table "notes", force: :cascade do |t|
     t.text "content"
@@ -27,7 +36,21 @@ ActiveRecord::Schema.define(version: 2021_06_30_074840) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.date "due_date"
+    t.string "priority"
+    t.string "status"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "complete_tasks", "tasks"
+  add_foreign_key "complete_tasks", "users"
   add_foreign_key "notes", "tasks"
 end
