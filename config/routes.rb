@@ -20,10 +20,11 @@ Rails.application.routes.draw do
     collection do
       get :search
     end
-    
+
     resources :notes, shallow: true,
                except: [:index, :show, :new]
   end
+  
   # get "/tasks", to: 'tasks#index'
   # get "/tasks/new", to: 'tasks#new'
 

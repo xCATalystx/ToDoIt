@@ -44,6 +44,7 @@ class TasksController < ApplicationController
 
   def show
     @note = Note.new
+    @task = Task.find(params["id"])
     @notes = @task.notes.order(id: :desc)
   end
 

@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   
   private
   def set_ransack_obj
-    @q = Current.user.tasks.ransack(params[:q])
+    @q = Task.ransack(params[:q])
   end
   
   def not_found
