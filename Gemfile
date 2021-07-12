@@ -29,6 +29,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'rails-i18n', '~> 6.0'
 gem 'kaminari', '~> 1.2', '>= 1.2.1'
+gem 'ransack', '~> 2.4', '>= 2.4.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

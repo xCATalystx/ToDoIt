@@ -4,11 +4,11 @@ class TasksController < ApplicationController
 
   def search
     keyword = params[:keyword]
-    @tasks = Current.user.tasks.search(keyword).page(params[:page]).per(5)
+    @tasks = @q.result(distinct: true).search(keyword).page(params[:page]).per(5)
   end
 
   def index
-    @tasks = Current.user.tasks.page(params[:page]).per(5).order(id: :created_at)
+    @tasks = @q.result(distinct: true).page(params[:page]).per(5).order(created_at: :desc)
   end
 
   def new
