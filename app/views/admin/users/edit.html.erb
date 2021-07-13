@@ -1,0 +1,25 @@
+<h1>編輯使用者</h1>
+<% if @user.errors.any? %>
+  <ul>
+  <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<%= form_for([:admin, @user]) do |f| %>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.text_area :password %>
+  </div>
+  <div>
+    <%= f.label :password_confirmation %>
+    <%= f.text_area :password_confirmation %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

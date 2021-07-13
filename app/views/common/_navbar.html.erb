@@ -2,8 +2,15 @@
   <% if Current.user %>
     <%= Current.user.email %>
     <%= button_to "Logout", logout_path, method: :delete %>
+    <button>
+    <% if Current.user.admin? %>
+      <%= link_to t('attributes.tasks.backend'), admin_users_path %>
+    <% end %>
+    </button>
   <% else %>
     <%= link_to "Sign Up", sign_up_path %>
     <%= link_to "Login", sign_in_path %>
   <% end %>
+
+  
 </div>
