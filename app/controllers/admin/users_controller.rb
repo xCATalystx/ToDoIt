@@ -1,7 +1,7 @@
 class Admin::UsersController < Admin::BaseController
-  before_action :find_user, only:[:edit, :show, :update, :destroy, :task]
+  before_action :find_user, only:[:edit, :show, :update, :destroy]
   def index
-    @users = User.page(params[:page]).per(5).order(id: :asc)
+    @users = User.all
   end
 
   def new
@@ -34,6 +34,12 @@ class Admin::UsersController < Admin::BaseController
     @user.destroy 
     flash[:notice] = "user was successfully deleted"
     redirect_to admin_users_path
+  end
+
+  def show
+    @task = Task.new
+    @user = User.find(params["id"])
+    @tasks = @user.tasks.order(id: :desc)
   end
 
   private

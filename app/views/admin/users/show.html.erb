@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr class="row">
+      <th class="priority">優先</th>
+      <th class="task">待辦事項</th>
+      <th class="tag">標籤</th>
+      <th class="duedate">截止日期</th>
+      <th class="status">進度</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @tasks.each do |task| %>
+    <tr>
+      <th><%= task.priority %></th>
+      <th><%= link_to task.title, task %></th>
+      <th><%= task.tag %></th>
+      <th><%= task.due_date %></th>
+      <th><%= task.status %></th>   
+    </tr>
+  <% end %>
+  </tbody>
+</table>

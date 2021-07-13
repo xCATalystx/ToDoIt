@@ -8,4 +8,17 @@ class Task < ApplicationRecord
   def self.search(keyword)
     where("title like '%#{keyword}%' or tag like '%#{keyword}%' or status like '%#{keyword}%'")
   end
+
+  def self.priority_order
+    order(
+      Arel.sql("
+        case
+          when priority = '高' then '3'
+          when priority = '中' then '2'
+          when priority = '低' then '1'
+        end
+      SQL")
+    )
+  end
+
 end

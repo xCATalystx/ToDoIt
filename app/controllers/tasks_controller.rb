@@ -56,14 +56,4 @@ class TasksController < ApplicationController
   def find_my_task
     @task = Current.user.tasks.find(params["id"])
   end
-
-  def self.priority_order
-    order("
-      case
-        when priority = '高' then '3'
-        when priority = '中' then '2'
-        when priority = '低' then '1'
-      end
-    ")
-  end
 end
