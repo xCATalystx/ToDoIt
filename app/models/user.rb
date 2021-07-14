@@ -3,4 +3,14 @@ class User < ApplicationRecord
   has_secure_password
 
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@[^@\s]+\z/ , message: "must be a valid email address!" }
+
+  before_destroy :check_user_count
+
+  def check_user_count
+    if User.all.count == 2
+      false
+    else
+      true
+    end
+  end
 end

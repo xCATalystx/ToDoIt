@@ -1,5 +1,7 @@
 class Admin::UsersController < Admin::BaseController
+  helper_method :count
   before_action :find_user, only:[:edit, :show, :update, :destroy]
+  
   def index
     @users = User.all
   end
@@ -38,7 +40,6 @@ class Admin::UsersController < Admin::BaseController
 
   def show
     @task = Task.new
-    @user = User.find(params["id"])
     @tasks = @user.tasks.order(id: :desc)
   end
 

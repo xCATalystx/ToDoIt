@@ -14,7 +14,11 @@
   </div>
   <div>
     <%= f.label :password %>
-    <%= f.text_area :password %>
+    <%= f.text_field :password %>
+  </div>
+  <div>
+  <%= f.label :admin %>
+  <%= f.select(:admin, options_for_select(["true", "false"]), {}, { :class => 'style'})%>
   </div>
 
   <%= f.submit %>
