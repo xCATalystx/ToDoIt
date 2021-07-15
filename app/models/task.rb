@@ -2,11 +2,27 @@ class Task < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
 
-  has_many :notes
+  has_many :taggings
+  has_many :tags, through: :taggings, dependent: :destroy
+
+  has_many :notes, dependent: :destroy
   belongs_to :user
 
   def self.search(keyword)
-    where("title like '%#{keyword}%' or tag like '%#{keyword}%' or status like '%#{keyword}%'")
+    Task.left_outer_joins(:tags).where("title like '%#{keyword}%' or 
+                                        tags.name like '%#{keyword}%' or 
+                                        status like '%#{keyword}%'
+    ")
+  end
+
+  def all_tags
+    tags.map{|t| t.name}.join(',')
+  end
+
+  def all_tags=(names)
+    self.tags = names.split(',').map do |name|
+                Tag.where(name: name.strip).first_or_create
+    end
   end
 
   def self.priority_order

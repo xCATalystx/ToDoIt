@@ -1,7 +1,9 @@
 <h1><%= @task.title %></h1>
-<p>
-  <%= @task.content %>
-</p>
+<p>to: <%= @task.due_date %></p>
+<p>狀態：<%= @task.status %></p>
+<p>優先：<%= @task.priority %></p>
+<p><%= @task.all_tags %></p>
+<p><%= @task.content %></p>
 <hr>
 <%= form_for(@note, url: task_notes_path(@task), remote: true) do |f|%>
   <%= f.text_area :content %>

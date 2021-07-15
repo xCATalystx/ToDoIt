@@ -30,7 +30,7 @@
     <tr>
       <th><%= task.priority %></th>
       <th><%= link_to task.title, task %></th>
-      <th><%= task.tag %></th>
+      <th><%= raw task.tags.map(&:name).join(', ') %></th>
       <th><%= task.due_date %></th>
       <th><%= task.status %></th>
       <th><%= link_to "編輯", edit_task_path(task) %></th>
