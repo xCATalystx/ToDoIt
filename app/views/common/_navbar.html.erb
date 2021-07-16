@@ -1,9 +1,8 @@
 <div>
-  <p><%= link_to "Task", tasks_path %></p>
   <% if Current.user %>
-    <%= Current.user.email %>
+    <p><%= Current.user.email %></p>
+    <button><%= link_to "Task", tasks_path %></button>
     <%= button_to "Logout", logout_path, method: :delete %>
-    
     <% if Current.user.admin? %>
     <button><%= link_to 'User List', admin_users_path %></button>
     <% end %>
@@ -11,6 +10,4 @@
     <%= link_to "Sign Up", sign_up_path %>
     <%= link_to "Login", sign_in_path %>
   <% end %>
-
-  
 </div>

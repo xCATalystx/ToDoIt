@@ -35,6 +35,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'foreman', '~> 0.87.2'
   gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
+  gem 'pry-rails', '~> 0.3.9'
 end
 
 group :development do

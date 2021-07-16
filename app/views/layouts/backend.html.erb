@@ -1,1 +1,8 @@
+<div>
+  <% if Current.user %>
+    <p><%= Current.user.email %></p>
+    <button><%= link_to "Task", tasks_path %></button>
+    <%= button_to "Logout", logout_path, method: :delete %>
+  <% end %>
+</div>
 <%= yield %>

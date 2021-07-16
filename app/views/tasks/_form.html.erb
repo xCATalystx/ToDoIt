@@ -13,11 +13,11 @@
   </div>
   <div>
     <%= f.label :priority %>
-    <%= f.select(:priority, options_for_select(["高", "中", "低"]), {}, { :class => 'style'})%>
+    <%= f.select :priority, [["高", 3], ["中", 2], ["低", 1]]%>
   </div>
   <div>
     <%= f.label :status %>
-    <%= f.select(:status, options_for_select(["待處理", "進行中", "已完成"]), {}, { :class => 'style'})%>
+    <%= f.select :status, ["待處理", "進行中", "已完成"]%>
   </div>
   <div>
     <%= f.label :tag %>
