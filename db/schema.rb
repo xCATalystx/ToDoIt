@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_15_102751) do
+ActiveRecord::Schema.define(version: 2021_07_15_174000) do
 
   create_table "notes", force: :cascade do |t|
     t.text "content"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2021_07_15_102751) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index "\"task_id\"", name: "index_tags_on_task_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -47,6 +48,8 @@ ActiveRecord::Schema.define(version: 2021_07_15_102751) do
     t.string "priority"
     t.string "status"
     t.string "tag"
+    t.index ["status"], name: "index_tasks_on_status"
+    t.index ["title"], name: "index_tasks_on_title"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 

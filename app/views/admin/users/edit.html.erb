@@ -18,7 +18,7 @@
   </div>
   <div>
   <%= f.label :admin %>
-  <%= f.select(:admin, options_for_select(["true", "false"]), {}, { :class => 'style'})%>
+  <%= f.check_box :admin, {}, "1", "0" %>
   </div>
 
   <%= f.submit %>
