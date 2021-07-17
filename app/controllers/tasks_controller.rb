@@ -6,13 +6,14 @@ class TasksController < ApplicationController
     keyword = params[:keyword]
     @tasks = @q.result(distinct: true).search(keyword).page(params[:page]).per(10)
   end
-  def status_search
-    keyword = params[:keyword]
-    @tasks = @q.result(distinct: true).search(keyword).page(params[:page]).per(10)
-  end
 
   def index
-    @tasks = @q.result(distinct: true).page(params[:page]).per(10).order(created_at: :desc)
+    @q = Task.includes(:user, :tags).ransack(params[:q])
+    @tasks = if params[:tag]
+               Task.tagged_with(params[:tag]).page(params[:page]).per(10)
+             else
+               @q.result(distinct: true).page(params[:page]).per(10).order(created_at: :desc)
+             end 
   end
 
   def new

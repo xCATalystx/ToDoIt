@@ -13,6 +13,10 @@ class Task < ApplicationRecord
                                         status like '#{keyword}'
     ")
   end
+  
+  def self.tagged_with(name)
+    Tag.find_by!(name: name).tasks
+  end
 
   def all_tags
     tags.map{|t| t.name}.join(',')

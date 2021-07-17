@@ -24,12 +24,13 @@
           <th class="delete">刪除</th>
         </tr>
       </thead>
+      
       <tbody>
         <% @tasks.each do |task| %>
           <tr role="row">
-            <td><%= task.priority%></td>
+            <td><%= transfer_priority(task.priority) %></td>
             <td><%= link_to task.title, task %></td>
-            <td><%= raw task.tags.map(&:name).join(', ') %></td>
+            <td><%= display_tag(task.tags.map(&:name)) %></td>
             <td><%= task.due_date %></td>
             <td><%= task.status %></td>
             <td><%= link_to "編輯", edit_task_path(task) %></td>
