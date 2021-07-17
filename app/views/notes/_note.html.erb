@@ -1,4 +1,4 @@
-<li>
+<li class="border border-4 rounded shadow-sm p-3 mb-5 bg-body rounded">
+  <p><%= note.content %></p>
   <%= link_to '刪除', note, method: 'delete', data: {confirm: '確認刪除？'} %>
-  <%= note.content %>
 </li>

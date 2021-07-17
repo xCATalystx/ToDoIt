@@ -8,18 +8,23 @@
 <% end %>
 
 <%= form_for([:admin, @user]) do |f| %>
-  <div>
+  <div class="field">
     <%= f.label :email %>
+    <br>
     <%= f.text_field :email %>
   </div>
-  <div>
+  <div class="field">
     <%= f.label :password %>
+    <br>
     <%= f.text_field :password %>
   </div>
-  <div>
-  <%= f.label :admin %>
-  <%= f.check_box :admin, {}, "1", "0" %>
+  <br>
+  <div class="field">
+    <%= f.label :admin %>
+    <%= f.check_box :admin, {}, "1", "0" %>
   </div>
-
-  <%= f.submit %>
+  <br>
+  <div class="action">
+    <%= f.submit %>
+  </div>
 <% end %>

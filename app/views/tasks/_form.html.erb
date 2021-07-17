@@ -1,36 +1,46 @@
 <% if task.errors.any? %>
-  <ul>
+  <ul class="border border-danger">
   <% task.errors.full_messages.each do |msg| %>
     <li><%= msg %></li>
   <% end %>
   </ul>
 <% end %>
 
-<%= form_for(task) do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <div>
-    <%= f.label :priority %>
-    <%= f.select :priority, [["高", 3], ["中", 2], ["低", 1]]%>
-  </div>
-  <div>
-    <%= f.label :status %>
-    <%= f.select :status, ["待處理", "進行中", "已完成"]%>
-  </div>
-  <div>
-    <%= f.label :tag %>
-    <%= f.text_field :all_tags, placeholder: "separated by commas"  %>
-  </div>
-  <div>
-    <%= f.label :due_date %>
-    <%= f.date_select :due_date %>
-  </div>
-  <div>
-    <%= f.label :content %>
-    <%= f.text_area :content %>
-  </div>
+<div class="container">
+  <%= form_for(task) do |f| %>
+    <div class="field">
+      <%= f.label :title %>
+      <br>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :priority %>
+      <br>
+      <%= f.select :priority, [["高", 3], ["中", 2], ["低", 1]]%>
+    </div>
+    <div class="field">
+      <%= f.label :status %>
+      <br>
+      <%= f.select :status, ["待處理", "進行中", "已完成"]%>
+    </div>
+    <div class="field">
+      <%= f.label :tag %>
+      <br>
+      <%= f.text_field :all_tags, placeholder: "separated by commas"  %>
+    </div>
+    <div class="field">
+      <%= f.label :due_date %>
+      <br>
+      <%= f.date_select :due_date %>
+    </div>
+    <div class="field">
+      <%= f.label :content %>
+      <br>
+      <%= f.text_area :content %>
+    </div>
 
-  <%= f.submit %>
-<% end %>
+    <div class="action">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

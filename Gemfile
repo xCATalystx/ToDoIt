@@ -29,6 +29,8 @@ gem 'rails-i18n', '~> 6.0'
 gem 'kaminari', '~> 1.2', '>= 1.2.1'
 gem 'ransack', '~> 2.4', '>= 2.4.2'
 gem 'faker', '~> 2.18'
+gem 'bootstrap', '~> 5.0', '>= 5.0.1'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

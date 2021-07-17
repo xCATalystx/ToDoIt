@@ -4,11 +4,15 @@ class TasksController < ApplicationController
 
   def search
     keyword = params[:keyword]
-    @tasks = @q.result(distinct: true).search(keyword).page(params[:page]).per(5)
+    @tasks = @q.result(distinct: true).search(keyword).page(params[:page]).per(10)
+  end
+  def status_search
+    keyword = params[:keyword]
+    @tasks = @q.result(distinct: true).search(keyword).page(params[:page]).per(10)
   end
 
   def index
-    @tasks = @q.result(distinct: true).page(params[:page]).per(5).order(created_at: :desc)
+    @tasks = @q.result(distinct: true).page(params[:page]).per(10).order(created_at: :desc)
   end
 
   def new

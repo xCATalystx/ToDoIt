@@ -10,8 +10,7 @@ class Task < ApplicationRecord
 
   def self.search(keyword)
     Task.left_outer_joins(:tags).where("title like '%#{keyword}%' or 
-                                        tags.name like '%#{keyword}%' or 
-                                        status like '%#{keyword}%'
+                                        status like '#{keyword}'
     ")
   end
 

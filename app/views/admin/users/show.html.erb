@@ -1,22 +1,27 @@
-<table>
-  <thead>
-    <tr class="row">
-      <th class="priority">優先</th>
-      <th class="task">待辦事項</th>
-      <th class="tag">標籤</th>
-      <th class="duedate">截止日期</th>
-      <th class="status">進度</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @tasks.each do |task| %>
-    <tr>
-      <th><%= task.priority %></th>
-      <th><%= link_to task.title, task %></th>
-      <th><%= raw task.tags.map(&:name).join(', ') %></th>
-      <th><%= task.due_date %></th>
-      <th><%= task.status %></th>   
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <table class="table table-striped table-bordered tablesorter-bootstrap">
+      <thead>
+        <tr role="row" class="tablesorter-headerRow">
+          <th class="priority"><%= sort_link(@q, :priority, '優先', default_order: :desc) %></th>
+          <th class="task">待辦事項</th>
+          <th class="tag">標籤</th>
+          <th class="duedate"><%= sort_link(@q, :due_date, '截止日期', default_order: :desc) %></th>
+          <th class="status">進度</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tasks.each do |task| %>
+          <tr role="row">
+            <td><%= task.priority%></td>
+            <td><%= link_to task.title, task %></td>
+            <td><%= raw task.tags.map(&:name).join(', ') %></td>
+            <td><%= task.due_date %></td>
+            <td><%= task.status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+

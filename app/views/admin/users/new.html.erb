@@ -1,14 +1,17 @@
 <%= form_with model: [:admin, @user], url: admin_sign_up_path do |form|%>
-    <div>
-      <%= form.label :email %>
-      <%= form.text_field :email, placeholder: "example@mail.com" %>
-    </div>
-    <div>
-      <%= form.label :password %>
-      <%= form.text_field :password, placeholder: "password" %>
-    </div>
-    
-    <div>
-      <%= form.submit "Create User" %>
-    </div>
-  <% end %>
+  <div class="field">
+    <%= form.label :email %>
+    <br>
+    <%= form.text_field :email, placeholder: "example@mail.com" %>
+  </div>
+  <br>
+  <div class="field">
+    <%= form.label :password %>
+    <br>
+    <%= form.text_field :password, placeholder: "password" %>
+  </div>
+  <br>  
+  <div class="action">
+    <%= form.submit "Create User" %>
+  </div>
+<% end %>

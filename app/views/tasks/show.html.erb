@@ -1,15 +1,26 @@
-<h1><%= @task.title %></h1>
-<p>to: <%= @task.due_date %></p>
-<p>狀態：<%= @task.status %></p>
-<p>優先：<%= @task.priority %></p>
-<p><%= @task.all_tags %></p>
-<p><%= @task.content %></p>
-<hr>
-<%= form_for(@note, url: task_notes_path(@task), remote: true) do |f|%>
-  <%= f.text_area :content %>
-  <%= f.submit %>
-<% end %>
-
-<ul class="notes">
-  <%= render @notes %>
-</ul>
+<div class="row" style="height:350px; background-image:url(https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-pure-color-watercolor-graffiti-gradient-background-board-design-board-design-image_66713.jpg);"></div>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="border border-4 rounded col-sm-6 shadow p-3 mb-5 bg-body rounded" style="width: 25rem;">
+      <div class="card-body">
+        <h1 class="card-title"><%= @task.title %></h5>
+        <h6 class="card-subtitle mb-2 text-muted">to: <%= @task.due_date %></h6>
+        <h6 class="card-subtitle mb-2 text-muted">狀態：<%= @task.status %></p>
+        <h6 class="card-subtitle mb-2 text-muted">優先：<%= @task.priority %></p>
+        <h4 class="card-text"><%= @task.content %></h4>
+        <a><%= @task.all_tags %></a>
+      </div>
+      <hr>
+      <%= form_for(@note, url: task_notes_path(@task), remote: true) do |f|%>
+        <%= f.text_area :content %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+    <div class="col-sm-3">
+      <ul class="notes">
+        <%= render @notes %>
+      </ul>
+    </div>
+  <div>
+</div>

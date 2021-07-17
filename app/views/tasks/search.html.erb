@@ -1,39 +1,51 @@
-<h1>To Do List</h1>
-
-<%= link_to "新增任務", new_task_path %>
-
-<form action="/tasks/search" method="get">
-  <input type="text" name="keyword" placeholder="查詢 代辦事項/標籤/進度">
-  <button type="submit">搜尋</button>
-</form>
-
-<hr>
-
-<%= paginate @tasks%>
-
-<table>
-  <thead>
-    <tr class="row">
-      <th class="priority"><%= sort_link(@q, :priority, '優先', default_order: :desc) %></th>
-      <th class="task">待辦事項</th>
-      <th class="tag">標籤</th>
-      <th class="duedate"><%= sort_link(@q, :due_date, '截止日期', default_order: :desc) %></th>
-      <th class="status">進度</th>
-      <th class="edit">編輯</th>
-      <th class="delete">刪除</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @tasks.each do |task| %>
-    <tr>
-      <th><%= task.priority %></th>
-      <th><%= link_to task.title, task %></th>
-      <th><%= raw task.tags.map(&:name).join(', ') %></th>
-      <th><%= task.due_date %></th>
-      <th><%= task.status %></th>
-      <th><%= link_to "編輯", edit_task_path(task) %></th>
-      <th><%= link_to "刪除", task, method: 'delete', data: { confirm: '確定刪除？' } %></th>   
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<div class="row" style="height:350px; background-image:url(https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-pure-color-watercolor-graffiti-gradient-background-board-design-board-design-image_66713.jpg);"></div>
+<br>
+<div class="container">
+  <div class="row">
+    <ul class="nav nav-pills nav-pills-center">
+      <li>
+        <form class="d-flex" action="/tasks/search" method="get">
+          <input class="form-control me-2" type="text" name="keyword" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </li>
+      <li>
+      </li>
+    </ul>
+    <br>
+    <br>
+    <table class="table table-striped table-bordered tablesorter-bootstrap">
+      <thead>
+        <tr role="row" class="tablesorter-headerRow">
+          <th class="priority"><%= sort_link(@q, :priority, '優先', default_order: :desc) %></th>
+          <th class="task">待辦事項</th>
+          <th class="tag">標籤</th>
+          <th class="duedate"><%= sort_link(@q, :due_date, '截止日期', default_order: :desc) %></th>
+          <th class="status">進度</th>
+          <th class="edit">編輯</th>
+          <th class="delete">刪除</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tasks.each do |task| %>
+          <tr role="row">
+            <td><%= task.priority%></td>
+            <td><%= link_to task.title, task %></td>
+            <td><%= raw task.tags.map(&:name).join(', ') %></td>
+            <td><%= task.due_date %></td>
+            <td><%= task.status %></td>
+            <td><%= link_to "編輯", edit_task_path(task) %></td>
+            <td><%= link_to "刪除", task, method: 'delete', data: { confirm: '確定刪除？' } %></td>   
+          </tr>
+        <% end %>
+      </tbody>
+      <caption>
+        <%= link_to "新增任務", new_task_path %>
+      </caption>
+    </table>
+    <br>
+    <nav aria-label="Page navigation example">
+      <%= paginate @tasks %>
+    </nav>
+  </div>
+</div>

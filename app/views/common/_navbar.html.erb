@@ -1,13 +1,27 @@
-<div>
-  <% if Current.user %>
-    <p><%= Current.user.email %></p>
-    <button><%= link_to "Task", tasks_path %></button>
-    <%= button_to "Logout", logout_path, method: :delete %>
-    <% if Current.user.admin? %>
-    <button><%= link_to 'User List', admin_users_path %></button>
-    <% end %>
-  <% else %>
-    <%= link_to "Sign Up", sign_up_path %>
-    <%= link_to "Login", sign_in_path %>
-  <% end %>
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <% if Current.user %>
+        <p><%= Current.user.email %></p>
+        <a class="navbar-brand">
+          <%= link_to "Task", tasks_path %>
+        </a>
+        <% if Current.user.admin? %>
+        <a class="navbar-brand">
+          <%= link_to 'Admin', admin_users_path %>
+        </a>
+        <% end %>
+        <a>
+          <%= button_to "Logout", logout_path, method: :delete %>
+        </a>
+      <% else %>
+        <a class="navbar-brand">
+          <%= link_to "Sign Up", sign_up_path %>
+        </a>
+        <a class="navbar-brand">
+          <%= link_to "Sign In", sign_in_path %>
+        </a>
+      <% end %>
+    </div>
+  </nav>
 </div>
