@@ -14,9 +14,6 @@
 
   <body>
     <div class="container">
-      <div>
-        <h4>後台管理系統</h4>
-      </div>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <% if Current.user %>
@@ -33,6 +30,12 @@
           <% end %>
         </div>
       </nav>
+      <br>
+      <div>
+        <h4>後台管理系統</h4>
+      </div>
+      <hr>
+      <br>
       <%= yield %>
     </div>
   </body>

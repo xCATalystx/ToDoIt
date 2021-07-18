@@ -6,10 +6,12 @@
       <div class="card-body">
         <h1 class="card-title"><%= @task.title %></h5>
         <h6 class="card-subtitle mb-2 text-muted">to: <%= @task.due_date %></h6>
-        <h6 class="card-subtitle mb-2 text-muted">狀態：<%= @task.status %></p>
-        <h6 class="card-subtitle mb-2 text-muted">優先：<%= @task.priority %></p>
-        <h4 class="card-text"><%= @task.content %></h4>
+        <h5 class="card-subtitle mb-2 text-muted">狀態：<%= @task.status %></h5>
+        <h5 class="card-subtitle mb-2 text-muted">優先：<%= @task.priority %></h5>
         <a><%= @task.all_tags %></a>
+        <br>
+        <br>
+        <h4 class="card-text"><%= @task.content %></h4>
       </div>
       <hr>
       <%= form_for(@note, url: task_notes_path(@task), remote: true) do |f|%>
@@ -17,7 +19,7 @@
         <%= f.submit %>
       <% end %>
     </div>
-    <div class="col-sm-3">
+    <div style="width: 25rem;">
       <ul class="notes">
         <%= render @notes %>
       </ul>

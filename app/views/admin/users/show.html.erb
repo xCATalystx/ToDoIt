@@ -3,11 +3,11 @@
     <table class="table table-striped table-bordered tablesorter-bootstrap">
       <thead>
         <tr role="row" class="tablesorter-headerRow">
-          <th class="priority"><%= sort_link(@q, :priority, '優先', default_order: :desc) %></th>
-          <th class="task">待辦事項</th>
-          <th class="tag">標籤</th>
-          <th class="duedate"><%= sort_link(@q, :due_date, '截止日期', default_order: :desc) %></th>
-          <th class="status">進度</th>
+          <th class="priority" scope="col"><%= sort_link(@q, :priority, '優先', default_order: :desc) %></th>
+          <th class="tasks" scope="col">待辦事項</th>
+          <th class="tag" scope="col">標籤</th>
+          <th class="duedate" scope="col"><%= sort_link(@q, :due_date, '截止日期', default_order: :desc) %></th>
+          <th class="status" scope="col">進度</th>
         </tr>
       </thead>
       <tbody>

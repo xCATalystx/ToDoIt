@@ -1,6 +1,6 @@
 module TasksHelper
   def display_tag(tag_names)
-    tag_names.map { |name| link_to name, tag_path(name) }.join(', ').html_safe
+    tag_names.map { |name| link_to name, tag_path(name) }.join(' ').html_safe
   end
   def transfer_priority(priority)
     if priority == "1"
