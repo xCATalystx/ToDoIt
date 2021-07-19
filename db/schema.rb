@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2021_07_15_174000) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "notes", force: :cascade do |t|
     t.text "content"
-    t.integer "task_id", null: false
+    t.bigint "task_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "deleted_at"
@@ -23,8 +26,8 @@ ActiveRecord::Schema.define(version: 2021_07_15_174000) do
   end
 
   create_table "taggings", force: :cascade do |t|
-    t.integer "tag_id", null: false
-    t.integer "task_id", null: false
+    t.bigint "tag_id", null: false
+    t.bigint "task_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["tag_id"], name: "index_taggings_on_tag_id"
@@ -35,27 +38,24 @@ ActiveRecord::Schema.define(version: 2021_07_15_174000) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"task_id\"", name: "index_tags_on_task_id"
   end
 
   create_table "tasks", force: :cascade do |t|
     t.string "title"
-    t.text "content"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
     t.date "due_date"
     t.string "priority"
     t.string "status"
     t.string "tag"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["status"], name: "index_tasks_on_status"
     t.index ["title"], name: "index_tasks_on_title"
-    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", null: false
-    t.string "password_digest"
+    t.string "email", default: "", null: false
+    t.string "password_digest", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "admin", default: false

@@ -6,5 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.find_or_create_by(email: 'susie.salmon.1973.12.06@gmail.com', password_digest: 'lovemylife', admin: 'true')
-User.find_or_create_by(email: 'iwanttosleep@gmail.com', password_digest: 'lovemylife', admin: 'false')
+# User
+User.find_or_create_by(email: 'susie.salmon.1973.12.06@gmail.com', password_digest: 'lovemylife', admin: '1')
+User.find_or_create_by(email: 'iwanttosleep@gmail.com', password_digest: 'lovemylife', admin: '0')
