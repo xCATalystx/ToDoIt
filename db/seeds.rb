@@ -7,5 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # User
-User.find_or_create_by(email: 'susie.salmon.1973.12.06@gmail.com', password_digest: 'lovemylife', admin: '1')
-User.find_or_create_by(email: 'iwanttosleep@gmail.com', password_digest: 'lovemylife', admin: '0')
+User.find_or_create_by(email: 'susie.salmon.1973.12.06@gmail.com', password: 'lovemylife', admin: '1')
+User.find_or_create_by(email: 'iwanttosleep@gmail.com', password: 'lovemylife', admin: '0')
