@@ -8,7 +8,7 @@ class TasksController < ApplicationController
   end
 
   def index
-    @q = Task.includes(:user, :tags).ransack(params[:q])
+    @q = Current.user.tasks.includes(:user, :tags).ransack(params[:q])
     @tasks = if params[:tag]
                Task.tagged_with(params[:tag]).page(params[:page]).per(10)
              else
