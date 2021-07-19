@@ -1,5 +1,9 @@
 # README
 
+ToDoIt is a todolist that help you to write down and manage the things you have to do or been done.
+
+Delploy on Heroku：https://todoit-now.herokuapp.com
+
 * Ruby version: 2.6.6p146
 
 * Rails version: 6.1.3.2
@@ -24,6 +28,4 @@
     
     tags
       name: varchar
-
-ToDoIt is a todolist that help you to write down and manage the things you have to do or been done.
 
