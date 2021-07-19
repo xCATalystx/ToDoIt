@@ -8,4 +8,7 @@
 
 # User
 User.find_or_create_by(email: 'susie.salmon.1973.12.06@gmail.com', password: 'lovemylife', admin: '1')
+puts 'admin created'
+
 User.find_or_create_by(email: 'iwanttosleep@gmail.com', password: 'lovemylife', admin: '0')
+puts 'user created'
