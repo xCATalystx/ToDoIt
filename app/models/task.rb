@@ -3,9 +3,9 @@ class Task < ApplicationRecord
   validates :content, presence: true
 
   has_many :taggings
-  has_many :tags, through: :taggings, dependent: :destroy
+  has_many :tags, through: :taggings
 
-  has_many :notes, dependent: :destroy
+  has_many :notes
   belongs_to :user
 
   def self.search(keyword)
