@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   before_action :find_user, only:[:edit, :show, :update, :destroy]
   
   def index
-    @users = User.all.order(id: :desc)
+    @users = User.all.order(id: :asc)
   end
 
   def new
