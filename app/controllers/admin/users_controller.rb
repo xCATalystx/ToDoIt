@@ -1,4 +1,4 @@
-class Admin::UsersController < Admin::BaseController
+class Admin::UsersController < ApplicationController
   helper_method :count
   before_action :find_user, only:[:edit, :show, :update, :destroy]
   

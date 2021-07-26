@@ -40,10 +40,6 @@ Rails.application.routes.draw do
   patch 'password/reset/edit', to: 'password_resets#update'
 
   get 'tags/:tag', to: 'tasks#index', as: :tag
-  
-  # get "/tasks", to: 'tasks#index'
-  # get "/tasks/new", to: 'tasks#new'
 
   root "tasks#index"
-  # get "/", to: 'tasks#index'
 end
