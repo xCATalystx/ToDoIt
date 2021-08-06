@@ -14,4 +14,5 @@ RSpec.describe Task, type: :model do
   
     # Assert
     expect(result.count).to be 1
+  end
 end
