@@ -54,6 +54,10 @@ class TasksController < ApplicationController
   end
 
   private
+  def set_ransack_obj
+    @q = Task.ransack(params[:q])
+  end
+  
   def task_params
     params.require(:task).permit(:priority, :status, :title, :due_date, :content, :all_tags)
   end
