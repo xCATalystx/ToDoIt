@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   before_action :current_user
-  before_action :set_ransack_obj
 
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
   rescue_from ActiveRecord::RecordNotFound, with: :server_error
