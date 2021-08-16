@@ -28,7 +28,7 @@ class Admin::UsersController < ApplicationController
       redirect_to admin_users_path
       flash[:notice] = "user was sucessfully updated"
     else
-        render :edit
+      render :edit
     end
   end
 

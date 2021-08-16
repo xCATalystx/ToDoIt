@@ -23,9 +23,6 @@ class ApplicationController < ActionController::Base
   end
   
   private
-  def set_ransack_obj
-    @q = Task.ransack(params[:q])
-  end
   
   def not_found
     render file: "public/404.html", layout: false, status: 404
