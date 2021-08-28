@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_ransack_obj
+
   before_action :require_user
   before_action :find_my_task, only: [:edit, :update, :destroy]
 
