@@ -51,7 +51,7 @@ class TasksController < ApplicationController
   def show
     @note = Note.new
     @task = Task.find(params["id"])
-    @notes = @task.notes.order(id: :desc)
+    @notes = @task.notes.where(deleted_at: nil).order(id: :desc)
   end
 
   private
